@@ -1,0 +1,70 @@
+<script type="text/x-red" data-template-name="letterboxd-controller">
+    <div class="form-row">
+        <label for="node-config-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-config-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-username"><i class="icon-bookmark"></i> Username</label>
+        <input type="text" id="node-config-input-username">
+    </div>
+    <div class="form-row">
+        <label for="node-config-input-password"><i class="icon-bookmark"></i> Password</label>
+        <input type="password" id="node-config-input-password">
+    </div>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('letterboxd-controller', {
+        category: 'config',
+        defaults: {
+            name: { value: '' },
+            username: { value: '', required: true },
+            password: { value: '', required: true, type: 'password' }
+        },
+        label: function(){
+            return this.name || 'Letterboxd Account';
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="letterboxd-mark-as-watched">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+    <div class="form-row">
+        <label for="node-input-controller"><i class="icon-bookmark"></i> Letterboxd Account</label>
+        <input type="text" id="node-input-controller">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="letterboxd-mark-as-watched">
+    <p>
+        Use this to tell Letterboxd, that the watched-status of a movie has changed. Following payload has to be passed:
+<pre>{
+    "tmdbId": string|undefined,
+    "imdbId": string|undefined,
+    "isWatched": boolean
+}</pre>
+    </p>
+    <p>You have to provide at least one of the IDs.</p>
+    <p>The value <code>isWatched</code> indicates if the movie should get set to watched or not-watched.</p>
+</script>
+
+<script type="text/javascript">
+    RED.nodes.registerType('letterboxd-mark-as-watched', {
+        category: 'input',
+        color: '#ffffff',
+        defaults: {
+            name: { value: '' },
+            controller: { value: '', type: 'letterboxd-controller' },
+        },
+        inputs: 1,
+        outputs: 0,
+        align: 'right',
+        icon: 'hash.png',
+        label: function(){
+            return this.name || 'Mark as Watched';
+        }
+    });
+</script>

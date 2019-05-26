@@ -1,0 +1,28 @@
+{
+  "name": "node-red-contrib-letterboxd-rudimentary",
+  "version": "0.1.1",
+  "description": "Provides node-red nodes for a rudimentary connection to letterboxd. This doesn't use the API.",
+  "main": "index.js",
+  "author": "Sebastian Langer <sl@scn.cx>",
+  "keywords": [
+    "node-red"
+  ],
+  "license": "MIT",
+  "node-red": {
+    "nodes": {
+      "letterboxd": "letterboxd.js"
+    }
+  },
+  "dependencies": {
+    "@3846masa/axios-cookiejar-support": "^0.4.2",
+    "@types/node": "^12.0.2",
+    "axios": "^0.18.0",
+    "qs": "^6.7.0",
+    "tough-cookie": "^3.0.1",
+    "typescript": "^3.4.5"
+  },
+  "devDependencies": {
+    "@types/node-red": "^0.20.0",
+    "@types/qs": "^6.5.3"
+  }
+}
