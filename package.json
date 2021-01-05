@@ -16,7 +16,7 @@
   "dependencies": {
     "@3846masa/axios-cookiejar-support": "^0.4.2",
     "@types/node": "^12.0.2",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "qs": "^6.7.0",
     "tough-cookie": "^3.0.1",
     "typescript": "^3.4.5"
